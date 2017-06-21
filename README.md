@@ -1,4 +1,4 @@
-mackerel-plugin-jmx-jolokia-ext
+mackerel-plugin-jmx-jolokia-ext[![Build Status](https://travis-ci.org/hajimeni/mackerel-plugin-jmx-jolokia-ext.svg?branch=master)](https://travis-ci.org/hajimeni/mackerel-plugin-jmx-jolokia-ext)
 ===========================
 
 Jolokia (https://jolokia.org/) custom metrics plugin for mackerel.io agent.

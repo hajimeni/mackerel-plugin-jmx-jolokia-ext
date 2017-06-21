@@ -1,6 +1,6 @@
 package main
 
-import "./lib"
+import "github.com/hajimeni/mackerel-plugin-jmx-jolokia-ext/lib"
 
 func main() {
 	mpjmxjolokia.Do()

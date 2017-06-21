@@ -128,12 +128,14 @@ func (j JmxJolokiaPlugin) fetchGarbageCollector(stat map[string]interface{}) err
 		nameBase := strings.Replace(beanName, " ", "", -1)
 
 		cresp, err := j.executeGetRequestValue(strings.Replace(v, " ", "%20", -1) + "/CollectionCount")
+		fmt.Printf("%v\n", cresp)
 		if err != nil {
 			return err
 		}
 		stat["GCCount" + nameBase] = cresp.Value
 
 		tresp, err := j.executeGetRequestValue(strings.Replace(v, " ", "%20", -1) + "/CollectionTime")
+		fmt.Printf("%v\n", tresp)
 		if err != nil {
 			return err
 		}
@@ -285,7 +287,7 @@ func (j JmxJolokiaPlugin) GraphDefinition() map[string]mp.Graphs {
 		beanName := group[1]
 		nameBase := strings.Replace(beanName, " ", "", -1 )
 		extGraphdef["jmx.jolokia.memory." + strings.ToLower(strings.Replace(beanName, " ", "_", -1))] = mp.Graphs{
-			Label: beanName,
+			Label: "JMX " + beanName,
 			Unit: "bytes",
 			Metrics: []mp.Metrics{
 				{Name: nameBase + "Init", Label: "init", Diff: false, Type: "uint64"},
