@@ -128,14 +128,12 @@ func (j JmxJolokiaPlugin) fetchGarbageCollector(stat map[string]interface{}) err
 		nameBase := strings.Replace(beanName, " ", "", -1)
 
 		cresp, err := j.executeGetRequestValue(strings.Replace(v, " ", "%20", -1) + "/CollectionCount")
-		fmt.Printf("%v\n", cresp)
 		if err != nil {
 			return err
 		}
 		stat["GCCount" + nameBase] = cresp.Value
 
 		tresp, err := j.executeGetRequestValue(strings.Replace(v, " ", "%20", -1) + "/CollectionTime")
-		fmt.Printf("%v\n", tresp)
 		if err != nil {
 			return err
 		}
